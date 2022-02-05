@@ -20,6 +20,7 @@ class Habits extends Component {
   };
 
   render() {
+    console.log('habits');
     return (
       <>
         <AddForm onAdd={this.handleAdd} />

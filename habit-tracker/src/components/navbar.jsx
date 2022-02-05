@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 
-class Navbar extends Component {
+class Navbar extends PureComponent {
   render() {
+    console.log('navbar');
     return (
       <header className='navbar'>
         <span>Habit Tracker</span>

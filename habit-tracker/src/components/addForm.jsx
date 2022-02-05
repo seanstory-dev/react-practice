@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 
-class AddForm extends Component {
+class AddForm extends PureComponent {
   formRef = React.createRef();
   inputRef = React.createRef();
 
@@ -14,6 +14,7 @@ class AddForm extends Component {
   };
 
   render() {
+    console.log('addForm');
     return (
       <form ref={this.formRef} className='add-form' onSubmit={this.onSubmitForm}>
         <p className='add-info'>✅ 원하는 습관을 입력하세요.</p>
