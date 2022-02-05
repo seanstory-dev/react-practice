@@ -28,3 +28,19 @@
 ### JSX
 
 [공식문서 읽기](https://reactjs.org/docs/jsx-in-depth.html)
+
+> 💡 Tip! 폰트어썸 설치 명령어 `yarn add @fortawesome/fontawesome-free`
+
+> `index.js`에도 `import '@fortawesome/fontawesome-free/js/all.js';` 를 추가해야 한다.
+
+### SyntheticEvent
+
+- 브라우저에서 발생하는 이벤트를 한단계 더 감싸서 컴포넌트에 전달하게 된다.
+
+[공식문서 읽기](https://reactjs.org/docs/events.html)
+
+### State, Props
+
+- State는 컴포넌트 안에서 정의한 state 오브젝트
+- Props는 컴포넌트 외부에서 제공받는 데이터로, 부모 컴포넌트에서 전달해주는 인자는 props 오브젝트로 묶여서 자식 컴포넌트에 전달된다.
+- 전달받은 인자는 `this.props.`으로 접근할 수 있다.
