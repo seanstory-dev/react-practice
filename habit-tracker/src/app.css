@@ -1,3 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  font-size: 2rem;
+  padding: 1em;
+  background-color: beige;
+}
+
+form {
+  display: inline-block;
+  text-align: center;
+}
+
+.add-info {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.add-input {
+  width: 70%;
+  font-size: 1.5em;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.add-button,
+.habits-reset {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: dodgerblue;
+  color: white;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+.habits-reset {
+  margin-left: 0.5rem;
+}
+
+.add-button:hover {
+  opacity: 80%;
+}
+
 .habit {
   font-size: 2em;
   list-style: none;
@@ -16,6 +61,7 @@ button {
   margin: 0 0.1em;
 }
 
+.navbar-count,
 .habit-count {
   display: inline-block;
   text-align: center;
