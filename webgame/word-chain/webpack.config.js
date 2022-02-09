@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
   name: "word-chain-setup",
@@ -30,14 +31,20 @@ module.exports = {
             ],
             "@babel/preset-react",
           ],
-          plugins: [],
+          plugins: ["react-refresh/babel"],
         },
       },
     ],
   }, // 적용
-  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  plugins: [new RefreshWebpackPlugin()],
   output: {
     path: path.join(__dirname, "dist"),
     filename: "app.js",
+    publicPath: "/dist/",
   }, // 출력
+  devServer: {
+    devMiddleware: { publicPath: "/dist/" }, // 웹팩이 생성해주는 경로
+    static: { directory: path.resolve(__dirname) },
+    hot: true,
+  },
 };
