@@ -1,56 +1,45 @@
+const { useState, useRef } = require("react");
 const React = require("react");
 
-class WordChain extends React.Component {
-  state = {
-    word: "애자일",
-    value: "",
-    result: "",
-  };
+const WordChain = () => {
+  const [word, setWord] = useState("애자일");
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState("");
+  const refInput = useRef();
 
-  onSubmitForm = (e) => {
+  const onSubmitForm = (e) => {
     e.preventDefault();
-    if (this.state.word[this.state.word.length - 1] === this.state.value[0]) {
-      this.setState({
-        result: "Pass!",
-        word: this.state.value,
-        value: "",
-      });
+    if (word[word.length - 1] === value[0]) {
+      setResult("Pass!");
+      setWord(value);
+      setValue("");
     } else {
-      this.setState({
-        result: "Fail!",
-        value: "",
-      });
+      setResult("Fail!");
+      setValue("");
     }
-    this.input.focus();
+    refInput.current.focus();
   };
 
-  onChangeInput = (e) => {
-    this.setState({ value: e.target.value });
+  const onChangeInput = (e) => {
+    setValue(e.target.value);
   };
 
-  input;
-  refInput = (c) => {
-    this.input = c;
-  };
-
-  render() {
-    return (
-      <>
-        <div>{this.state.word}</div>
-        <form onSubmit={this.onSubmitForm}>
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.onChangeInput}
-            ref={this.refInput}
-          />{" "}
-          {/* value, onChange는 세트, 아니면 defaultValue */}
-          <button>입력</button>
-          <div>{this.state.result}</div>
-        </form>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <div>{word}</div>
+      <form onSubmit={onSubmitForm}>
+        <input
+          type="text"
+          value={value}
+          onChange={onChangeInput}
+          ref={refInput}
+        />{" "}
+        {/* value, onChange는 세트, 아니면 defaultValue */}
+        <button>입력</button>
+        <div>{result}</div>
+      </form>
+    </>
+  );
+};
 
 module.exports = WordChain;
